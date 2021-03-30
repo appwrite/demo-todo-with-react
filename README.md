@@ -37,7 +37,7 @@ You have two options to deploy the front-end and we will cover both of them here
 * REACT_APP_PROJECT - Your Appwrite project ID
 * REACT_APP_COLLECTION_ID - Your Appwrite collection ID 
 
-#### **Deploy to a Static Hosting Provider**
+### **Deploy to a Static Hosting Provider**
 
 Use the following buttons to deploy to your favourite hosting provider in one click! We support Vercel, Netlify and DigitalOcean 
 
