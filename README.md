@@ -50,7 +50,7 @@ Use the following buttons to deploy to your favourite hosting provider in one cl
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/appwrite/todo-with-react)
 
-You will need to enter the environemnt variables we discussed above when prompted.
+You will need to enter the environment variables we discussed above when prompted.
 
 ### **Run locally**
 
