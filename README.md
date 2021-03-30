@@ -20,9 +20,13 @@ We need to make a few configuration changes to your Appwrite server.
 Add the following rules to the collection. 
 > Make sure that your key exactly matches the key in the images
 
-![Content Rule](https://user-images.githubusercontent.com/20852629/113019972-c3753c80-919f-11eb-9b3a-c3690785bbf4.png)
-![IsComplete Rule](https://user-images.githubusercontent.com/20852629/113020008-cec86800-919f-11eb-8cc2-473f8d15fc3f.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/20852629/113019972-c3753c80-919f-11eb-9b3a-c3690785bbf4.png" alt="Content Rule" width="400"/>
+</p>
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/20852629/113020008-cec86800-919f-11eb-8cc2-473f8d15fc3f.png" alt="IsComplete Rule" width="400"/>
+</p>
 
 * **Permissions**
 Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
