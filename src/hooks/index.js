@@ -35,7 +35,7 @@ export const useGetTodos = (stale) => {
 
   useEffect(() => {
     let didCancel = false;
-    const getTodos = (async () => {
+    const getTodos = async () => {
       dispatch({ type: FetchState.FETCH_INIT });
       try {
         const data = await api.listDocuments(Server.collectionID);
@@ -47,7 +47,7 @@ export const useGetTodos = (stale) => {
           dispatch({ type: FetchState.FETCH_FAILURE });
         }
       }
-    })();
+    };
     getTodos();
     return () => (didCancel = true);
   }, [stale]);
