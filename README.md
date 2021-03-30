@@ -31,8 +31,9 @@ Add the following rules to the collection.
 * **Permissions**
 Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
 
-![Collection Permissions](https://user-images.githubusercontent.com/20852629/113019801-99bc1580-919f-11eb-9a94-13b1529cb925.png)
-
+<p align="center">
+<img src="https://user-images.githubusercontent.com/20852629/113019801-99bc1580-919f-11eb-9a94-13b1529cb925.png" alt="Collection Permissions" width="400"/>
+</p>
 
 ### 🚀 Deploy the Front End
 You have two options to deploy the front-end and we will cover both of them here. In either case, you will need to fill in these environment variables that help your frontend connect to Appwrite.
