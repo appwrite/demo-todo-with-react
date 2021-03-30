@@ -5,8 +5,8 @@ import Landing from "./pages/Landing/Landing";
 import { useGetUser } from "./hooks";
 
 function App() {
+  // eslint-disable-next-line
   const [{ user, isLoading, isError }, dispatch] = useGetUser();
-  console.log("USER", user);
 
   return (
     <BrowserRouter>

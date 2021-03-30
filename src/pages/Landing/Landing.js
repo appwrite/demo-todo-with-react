@@ -8,6 +8,21 @@ const Landing = () => {
     history.push("/todos");
   };
 
+  const links = [
+    {
+      href: "http://github.com/appwrite/appwrite",
+      icon: github(10),
+    },
+    {
+      href: "https://twitter.com/appwrite_io",
+      icon: twitter(10),
+    },
+    {
+      href: "http://appwrite.io",
+      icon: appwrite(10),
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -30,15 +45,11 @@ const Landing = () => {
 
       {/* Links */}
       <section className="absolute bottom-0 right-0 py-3 px-6 mr-8 mb-8 flex">
-        <div className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
-          <a href="http://github.com/appwrite/appwrite">{github(10)}</a>
-        </div>
-        <div className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-2xl">
-          <a href="https://twitter.com/appwrite_io">{twitter(10)}</a>
-        </div>
-        <div className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-2xl">
-          <a href="http://appwrite.io">{appwrite(10)}</a>
-        </div>
+        {links.map((item, key) => (
+          <div className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
+            <a href={item["href"]}>{item["icon"]}</a>
+          </div>
+        ))}
       </section>
     </>
   );

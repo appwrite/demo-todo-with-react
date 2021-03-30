@@ -5,7 +5,9 @@ let api = {
   sdk: null,
 
   provider: () => {
-    if (api.sdk) return api.sdk;
+    if (api.sdk) {
+      return api.sdk;
+    }
     let appwrite = new Appwrite();
     appwrite.setEndpoint(Server.endpoint).setProject(Server.project);
     api.sdk = appwrite;

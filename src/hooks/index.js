@@ -35,16 +35,19 @@ export const useGetTodos = (stale) => {
 
   useEffect(() => {
     let didCancel = false;
-    const getTodos = async () => {
+    const getTodos = (async () => {
       dispatch({ type: FetchState.FETCH_INIT });
       try {
         const data = await api.listDocuments(Server.collectionID);
-        if (!didCancel)
+        if (!didCancel) {
           dispatch({ type: FetchState.FETCH_SUCCESS, payload: data.documents });
+        }
       } catch (e) {
-        if (!didCancel) dispatch({ type: FetchState.FETCH_FAILURE });
+        if (!didCancel) {
+          dispatch({ type: FetchState.FETCH_FAILURE });
+        }
       }
-    };
+    })();
     getTodos();
     return () => (didCancel = true);
   }, [stale]);
@@ -83,10 +86,13 @@ export const useGetUser = () => {
       dispatch({ type: FetchState.FETCH_INIT });
       try {
         const account = await api.getAccount();
-        if (!didCancel)
+        if (!didCancel) {
           dispatch({ type: FetchState.FETCH_SUCCESS, payload: account });
+        }
       } catch (e) {
-        if (!didCancel) dispatch({ type: FetchState.FETCH_FAILURE });
+        if (!didCancel) {
+          dispatch({ type: FetchState.FETCH_FAILURE });
+        }
       }
     };
     getTodos();

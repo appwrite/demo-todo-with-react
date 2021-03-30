@@ -10,7 +10,6 @@ Follow our simple [Installation Guide](https://appwrite.io/docs/installation) to
 
 > Note: If you setup Appwrite on your local machine, you will need to create a public IP so that your hosted frontend can access it.
   
-
 We need to make a few configuration changes to your Appwrite server. 
 
 1. Add a new Web App in Appwrite and enter the endpoint of your website (`localhost, <project-name>.vercel.app etc`)

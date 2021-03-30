@@ -1,4 +1,3 @@
-import { PropTypes } from "prop-types";
 import { useState } from "react";
 import api from "../../api/api";
 import { FetchState } from "../../hooks";
@@ -28,12 +27,12 @@ const SignUp = ({ setRegister, dispatch }) => {
           <p className="mt-4">
             {" "}
             Already have an account ?{" "}
-            <a
+            <span
               className="cursor-pointer underline"
               onClick={() => setRegister(false)}
             >
               Login
-            </a>{" "}
+            </span>{" "}
           </p>
           <form onSubmit={handleSignup}>
             <label className="block mt-6"> Name</label>
@@ -71,9 +70,5 @@ const SignUp = ({ setRegister, dispatch }) => {
     </>
   );
 };
-
-// Login.propTypes = {
-//   setToken: PropTypes.func.isRequired,
-// };
 
 export default SignUp;
