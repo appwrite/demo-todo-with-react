@@ -1,12 +1,11 @@
 spec:
-  name: react-todo-mvc
+  name: todo-with-react
   static_sites:
-  - build_command: npm build
-    environment_slug: html
+  - environment_slug: html
     git:
       branch: main
-      repo_clone_url: https://github.com/christyjacob4/react-todo-mvc.git
-    name: react-todo-mvc
+      repo_clone_url: https://github.com/appwrite/todo-with-react.git
+    name: todo-with-react
     output_dir: build
     build_command: npm run build
     envs:
