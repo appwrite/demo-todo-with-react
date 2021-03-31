@@ -46,13 +46,14 @@ You have two options to deploy the front-end and we will cover both of them here
 
 ### **Deploy to a Static Hosting Provider**
 
-Use the following buttons to deploy to your favourite hosting provider in one click! We support Vercel, Netlify and DigitalOcean 
+Use the following buttons to deploy to your favourite hosting provider in one click! We support Vercel, Netlify and DigitalOcean. You will need to enter the environment variables above when prompted.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fappwrite%2Ftodo-with-react&env=REACT_APP_COLLECTION_ID,REACT_APP_PROJECT,REACT_APP_ENDPOINT&envDescription=Your%20Appwrite%20Endpoint%2C%20Project%20ID%20and%20Collection%20ID%20)
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/appwrite/todo-with-react)
 
-You will need to enter the environment variables we discussed above when prompted.
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/appwrite/todo-with-react/tree/main)
+
 
 ### **Run locally**
 
@@ -63,7 +64,7 @@ $ git clone https://github.com/appwrite/todo-with-react
 $ cd todo-with-react
 ```
 
-Run the following command to generate your `.env` vars  
+Run the following command to generate your `.env` vars
 
 ```sh
 $ cp .env.example .env
@@ -71,11 +72,13 @@ $ cp .env.example .env
 
 Now fill in the envrionment variables we discussed above in your `.env`
 
-Now run the following commands and you should be good to go 💪🏼 
+Now run the following commands and you should be good to go 💪🏼
+
 ```
 $ npm install
 $ npm start
 ```
 
-## 🤕 Support 
+## 🤕 Support
+
 If you get stuck anywhere, hop onto one of our [support channels in discord](https://appwrite.io/discord) and we'd be delighted to help you out 🤝
