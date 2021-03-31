@@ -17,6 +17,7 @@ We need to make a few configuration changes to your Appwrite server.
 
 2. Create a new collection with the following properties
 * **Rules**
+
 Add the following rules to the collection. 
 > Make sure that your key exactly matches the key in the images
 
@@ -29,6 +30,7 @@ Add the following rules to the collection.
 </p>
 
 * **Permissions**
+
 Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
 
 <p align="center">
