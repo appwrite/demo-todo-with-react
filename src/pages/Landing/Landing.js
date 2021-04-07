@@ -28,15 +28,15 @@ const Landing = () => {
       {/* Hero */}
       <section className="container h-screen mx-auto flex">
         <div className="flex flex-col mx-auto justify-center p-6 text-center">
-          <p className="my-8 text-2xl font-medium">Introducing</p>
-          <h1 className="text-9xl font-bold">toTooooDoooo</h1>
-          <p className="my-8 text-2xl font-medium">
+          <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">Introducing</p>
+          <h1 className="text-4xl md:text-7xl lg:text-9xl font-bold">toTooooDoooo</h1>
+          <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">
             A Simple To-do App built with {appwrite(8)} Appwrite and {react(8)}{" "}
             React
           </p>
           <button
             onClick={handleClick}
-            className="mx-auto mt-4 py-5 px-24 font-semibold text-2xl rounded-lg shadow-md bg-white text-gray-900 border border-gray-900 hover:border-transparent hover:text-white hover:bg-gray-900 focus:outline-none"
+            className="mx-auto mt-4 py-3 lg:py-5 px-10 lg:px-24 text-lg md:text-2xl font-semibold  rounded-lg shadow-md bg-white text-gray-900 border border-gray-900 hover:border-transparent hover:text-white hover:bg-gray-900 focus:outline-none"
           >
             Get Started
           </button>
