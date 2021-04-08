@@ -3,6 +3,7 @@ import api from "../../api/api";
 import { FetchState } from "../../hooks";
 
 const SignUp = ({ setRegister, dispatch }) => {
+  // “Deleted code is debugged code.”
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -43,6 +44,7 @@ const SignUp = ({ setRegister, dispatch }) => {
             />
 
             <label className="block mt-6"> Email</label>
+            {/* “Don’t worry if it doesn’t work right. If everything did, you’d be out of a job.”  */}
             <input
               className="w-full p-4 placeholder-gray-400 text-gray-700 bg-white text-lg border-0 border-b-2 border-gray-400 focus:ring-0 focus:border-gray-900"
               type="text"

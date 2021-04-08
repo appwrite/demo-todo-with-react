@@ -86,6 +86,7 @@ dist
 .cache/
 # Comment in the public line in if your project uses Gatsby and *not* Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
+# “One: Demonstrations always crash. And two: The probability of them crashing goes up exponentially with the number of people watching.”
 # public
 
 # vuepress build output

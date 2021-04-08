@@ -96,6 +96,7 @@ export const useGetUser = () => {
       }
     };
     getTodos();
+    // “Remember that there is no code faster than no code.” 
     return () => (didCancel = true);
   }, []);
 

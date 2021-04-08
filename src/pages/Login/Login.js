@@ -4,6 +4,7 @@ import SignUp from "./SignUp";
 import { FetchState } from "../../hooks";
 
 const Login = ({ dispatch }) => {
+  // “A good programmer is someone who always looks both ways before crossing a one-way street.”
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [register, setRegister] = useState(false);
