@@ -1,0 +1,20 @@
+spec:
+  name: todo-with-react
+  static_sites:
+  - environment_slug: html
+    git:
+      branch: main
+      repo_clone_url: https://github.com/appwrite/todo-with-react.git
+    name: todo-with-react
+    output_dir: build
+    build_command: npm run build
+    envs:
+      - key: REACT_APP_ENDPOINT
+        value: Your Appwrite endpoint
+        scope: RUN_TIME
+      - key: REACT_APP_PROJECT
+        value: Your Appwrite Project ID
+        scope: RUN_TIME
+      - key: REACT_APP_COLLECTION_ID
+        value: Your Appwrite Collection ID
+        scope: RUN_TIME
