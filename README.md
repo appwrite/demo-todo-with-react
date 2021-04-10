@@ -4,7 +4,8 @@
 
 A simple todo app built with Appwrite and React
 
-If you simply want to try out the App, go ahead and check out the demo at https://react-todo-mvc.vercel.app/
+If you simply want to try out the App, go ahead and check out the demo at https://appwrite-todo-with-react.vercel.app
+
 
 ## 🎬 Getting Started
 
