@@ -3,7 +3,6 @@ import api from "../../api/api";
 import { FetchState } from "../../hooks";
 
 const SignUp = ({ setRegister, dispatch }) => {
-  // “Deleted code is debugged code.”
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
