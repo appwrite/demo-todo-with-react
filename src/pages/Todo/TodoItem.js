@@ -1,6 +1,5 @@
 import api from "../../api/api";
 import { Server } from "../../utils/config";
-// “It works on my machine.” 
 import { deleteButton } from "../icons";
 
 const TodoItem = ({ item, setStale }) => {
