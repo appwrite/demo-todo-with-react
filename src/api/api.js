@@ -1,4 +1,4 @@
-import Appwrite from "appwrite";
+import { Appwrite } from "appwrite";
 import { Server } from "../utils/config";
 
 let api = {
