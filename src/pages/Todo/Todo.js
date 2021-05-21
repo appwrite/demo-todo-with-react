@@ -1,6 +1,5 @@
 import { useState } from "react";
 import api from "../../api/api";
-// “It’s not a bug — it’s an undocumented feature.”
 import { FetchState, useGetTodos } from "../../hooks";
 import { Server } from "../../utils/config";
 import Alert from "../Alert/Alert";
