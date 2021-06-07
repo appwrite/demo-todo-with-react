@@ -25,7 +25,6 @@ const Landing = () => {
 
   return (
     <>
-      {/* Hero */}
       <section className="container h-screen mx-auto flex">
         <div className="flex flex-col mx-auto justify-center p-6 text-center">
           <p className="my-8 text-xl md:text-2xl lg:text-3xl font-medium">Introducing</p>
@@ -43,7 +42,6 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* “No code has zero defects.” */}
       <section className="absolute bottom-0 right-0 py-3 px-6 mr-8 mb-8 flex">
         {links.map((item, key) => (
           <div className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
