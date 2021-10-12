@@ -14,11 +14,6 @@
       "description": "Your Appwrite collection ID",
       "value": "5ff468cfa32a0",
       "required": true
-    },
-    "NPM_CONFIG_PRODUCTION": {
-      "description": "READONLY, prevents pruning of developer dependencies",
-      "value": "false",
-      "required": false
     }
   },
   "buildpacks": [
