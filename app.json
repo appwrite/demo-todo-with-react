@@ -2,17 +2,17 @@
   "env": {
     "REACT_APP_ENDPOINT": {
       "description": "Your Appwrite endpoint",
-      "value": "localhost",
+      "value": "APP_ENDPOINT",
       "required": true
     },
     "REACT_APP_PROJECT": {
       "description": "Your Appwrite project ID",
-      "value": "455x34dfkj",
+      "value": "APP_PROJECT_ID",
       "required": true
     },
     "REACT_APP_COLLECTION_ID": {
       "description": "Your Appwrite collection ID",
-      "value": "5ff468cfa32a0",
+      "value": "COLLECTION_ID",
       "required": true
     }
   },
