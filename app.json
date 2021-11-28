@@ -1,0 +1,24 @@
+{
+  "env": {
+    "REACT_APP_ENDPOINT": {
+      "description": "Your Appwrite endpoint",
+      "value": "APP_ENDPOINT",
+      "required": true
+    },
+    "REACT_APP_PROJECT": {
+      "description": "Your Appwrite project ID",
+      "value": "APP_PROJECT_ID",
+      "required": true
+    },
+    "REACT_APP_COLLECTION_ID": {
+      "description": "Your Appwrite collection ID",
+      "value": "COLLECTION_ID",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack"
+    }
+  ]
+}
