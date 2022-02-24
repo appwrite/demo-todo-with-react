@@ -104,4 +104,3 @@ dist
 .tern-port
 
 build/
-yarn.lock
