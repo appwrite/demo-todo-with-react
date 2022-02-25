@@ -9,12 +9,13 @@ const TodoItem = ({ item, setStale }) => {
       isComplete: !item["isComplete"],
     };
     try {
+      console.log(item)
       await api.updateDocument(
         Server.collectionID,
         item["$id"],
         data,
-        item["read"],
-        item["write"]
+        item["$read"],
+        item["$write"]
       );
       setStale({ stale: true });
     } catch (e) {
