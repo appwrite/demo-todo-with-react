@@ -15,7 +15,7 @@ let api = {
   },
 
   createAccount: (email, password, name) => {
-    return api.provider().account.create(email, password, name);
+    return api.provider().account.create('unique()', email, password, name);
   },
 
   getAccount: () => {
@@ -33,7 +33,7 @@ let api = {
   createDocument: (collectionId, data, read, write) => {
     return api
       .provider()
-      .database.createDocument(collectionId, data, read, write);
+      .database.createDocument(collectionId, 'unique()', data, read, write);
   },
 
   listDocuments: (collectionId) => {
