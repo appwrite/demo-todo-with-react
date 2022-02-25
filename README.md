@@ -26,11 +26,11 @@ Add the following attributes to the collection.
 > Make sure that your Attribute ID exactly matches the key in the images
 
 <p align="center">
-  <img width="744" alt="Screen Shot 2022-02-24 at 5 20 30 PM" src="https://user-images.githubusercontent.com/29069505/155617343-6ff674b3-9809-42ac-8175-0f76271b1189.png">
+  <img width="744" alt="Content Attribute" src="https://user-images.githubusercontent.com/29069505/155617343-6ff674b3-9809-42ac-8175-0f76271b1189.png">
 </p>
 
 <p align="center">
-  <img width="744" alt="Screen Shot 2022-02-24 at 5 20 56 PM" src="https://user-images.githubusercontent.com/29069505/155617393-f30270af-aa07-4392-a7b2-75b8ce9c60da.png">
+  <img width="744" alt="IsComplete Attribute" src="https://user-images.githubusercontent.com/29069505/155617393-f30270af-aa07-4392-a7b2-75b8ce9c60da.png">
 </p>
 
 * **Permissions**
