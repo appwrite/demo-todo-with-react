@@ -9,9 +9,11 @@ const Todo = ({ user, dispatch }) => {
   const [stale, setStale] = useState({ stale: false });
   const [{ todos, isLoading, isError }] = useGetTodos(stale);
   const [currentTodo, setCurrentTodo] = useState("");
+  const [isFormDisabled, setIsFormDisabled] = useState(false);
 
   const handleAddTodo = async (e) => {
     e.preventDefault();
+    setIsFormDisabled(true);
     console.log("Adding Todo");
     const data = {
       content: currentTodo,
@@ -30,6 +32,7 @@ const Todo = ({ user, dispatch }) => {
     } catch (e) {
       console.log("Error in adding todo");
     }
+    setIsFormDisabled(false);
   };
 
 
@@ -53,6 +56,7 @@ const Todo = ({ user, dispatch }) => {
           </div>
 
           <form onSubmit={handleAddTodo}>
+            <fieldset disabled={isFormDisabled}>
             <input
               type="text"
               className="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
@@ -60,6 +64,7 @@ const Todo = ({ user, dispatch }) => {
               value={currentTodo}
               onChange={(e) => setCurrentTodo(e.target.value)}
             ></input>
+            </fieldset>
           </form>
 
           {isLoading && <h1> Loading .... </h1>}
