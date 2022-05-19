@@ -44,7 +44,7 @@ const Landing = () => {
 
       <section className="absolute bottom-0 right-0 py-3 px-6 mr-8 mb-8 flex">
         {links.map((item, key) => (
-          <div key="{item}" className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
+          <div className="rounded-full mx-4 transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-125 hover:shadow-4xl">
             <a href={item["href"]}>{item["icon"]}</a>
           </div>
         ))}
