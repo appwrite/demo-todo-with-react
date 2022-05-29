@@ -42,12 +42,16 @@ const Login = ({ dispatch }) => {
             className="w-full p-4 placeholder-gray-400 text-gray-700 bg-white text-lg border-0 border-b-2 border-gray-400 focus:ring-0 focus:border-gray-900"
             type="text"
             onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            autoComplete="email"
           />
           <label className="block mt-6"> Password</label>
           <input
             className="w-full p-4 placeholder-gray-400 text-gray-700 bg-white text-lg border-0 border-b-2 border-gray-400 focus:ring-0 focus:border-gray-900"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            autoComplete="password"
           />
 
           <div className="mt-6">
