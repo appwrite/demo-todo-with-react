@@ -11,3 +11,4 @@
   REACT_APP_ENDPOINT = "Your Appwrite Server Endpoint"
   REACT_APP_PROJECT = "Your Appwrite project ID"
   REACT_APP_COLLECTION_ID = "Your Collection ID"
+  REACT_APP_DATABASE_ID = "Your Database ID"

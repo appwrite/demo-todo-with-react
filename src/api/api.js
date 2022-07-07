@@ -1,5 +1,5 @@
-import { Appwrite } from "appwrite";
-import { Server } from "../utils/config";
+import { Client as Appwrite, Databases, Account } from 'appwrite';
+import { Server } from '../utils/config';
 
 let api = {
   sdk: null,
@@ -10,7 +10,10 @@ let api = {
     }
     let appwrite = new Appwrite();
     appwrite.setEndpoint(Server.endpoint).setProject(Server.project);
-    api.sdk = appwrite;
+    const account = new Account(appwrite);
+    const database = new Databases(appwrite, Server.databaseID);
+
+    api.sdk = { database, account };
     return appwrite;
   },
 
@@ -23,7 +26,7 @@ let api = {
   },
 
   createSession: (email, password) => {
-    return api.provider().account.createSession(email, password);
+    return api.provider().account.createEmailSession(email, password);
   },
 
   deleteCurrentSession: () => {
