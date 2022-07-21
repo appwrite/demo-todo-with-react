@@ -2,7 +2,7 @@ import { useState } from "react";
 import api from "../../api/api";
 import { FetchState } from "../../hooks";
 
-const SignUp = ({ setRegister, dispatch }) => {
+const SignUp = ({ setRegister, dispatch, error }) => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -18,7 +18,10 @@ const SignUp = ({ setRegister, dispatch }) => {
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: user });
     } catch (e) {
       setLoading(false);
-      dispatch({ type: FetchState.FETCH_FAILURE });
+      dispatch({
+        type: FetchState.FETCH_FAILURE,
+        payload: { message: e.message },
+      });
     }
   };
 
@@ -64,6 +67,8 @@ const SignUp = ({ setRegister, dispatch }) => {
               name='password'
               autoComplete='password'
             />
+
+            <p className='text-red-600 text-sm mt-4'>{error}&nbsp;</p>
 
             <div className='mt-6'>
               <button

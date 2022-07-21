@@ -3,7 +3,7 @@ import api from "../../api/api";
 import SignUp from "./SignUp";
 import { FetchState } from "../../hooks";
 
-const Login = ({ dispatch }) => {
+const Login = ({ dispatch, error }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [register, setRegister] = useState(false);
@@ -19,12 +19,16 @@ const Login = ({ dispatch }) => {
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
     } catch (e) {
       setLoading(false);
-      dispatch({ type: FetchState.FETCH_FAILURE });
+      console.log(e.message);
+      dispatch({
+        type: FetchState.FETCH_FAILURE,
+        payload: { message: e.message },
+      });
     }
   };
 
   return register ? (
-    <SignUp setRegister={setRegister} dispatch={dispatch} />
+    <SignUp setRegister={setRegister} dispatch={dispatch} error={error} />
   ) : (
     <section className='container h-screen mx-auto flex'>
       <div className='flex-grow flex flex-col max-w-xl justify-center p-6'>
@@ -56,6 +60,8 @@ const Login = ({ dispatch }) => {
             name='password'
             autoComplete='password'
           />
+
+          <p className='text-red-600 text-sm mt-4'>{error}&nbsp;</p>
 
           <div className='mt-6'>
             <button
