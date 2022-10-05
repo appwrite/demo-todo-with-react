@@ -1,3 +1,5 @@
+//this is js code
+
 import { Client as Appwrite, Databases, Account } from 'appwrite';
 import { Server } from '../utils/config';
 
