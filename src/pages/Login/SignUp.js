@@ -10,6 +10,10 @@ const SignUp = ({ setRegister, dispatch }) => {
   const handleSignup = async (e) => {
     e.preventDefault();
     dispatch({ type: FetchState.FETCH_INIT });
+    if(password.length < 8) {
+      alert("Password must be at least 8 characters long", "error");
+      return;
+    }
     try {
       const user = await api.createAccount(email, password, name);
       await api.createSession(email, password);
@@ -21,7 +25,7 @@ const SignUp = ({ setRegister, dispatch }) => {
 
   return (
     <>
-      <section className="container h-screen mx-auto flex">
+      <section className="container h-screen mx-auto flex justify-center items-center">
         <div className="flex-grow flex flex-col max-w-xl justify-center p-6">
           <h1 className="text-6xl font-bold">Sign Up</h1>
           <p className="mt-4">
