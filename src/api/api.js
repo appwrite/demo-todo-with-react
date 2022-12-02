@@ -11,7 +11,7 @@ let api = {
     let appwrite = new Appwrite();
     appwrite.setEndpoint(Server.endpoint).setProject(Server.project);
     const account = new Account(appwrite);
-    const database = new Databases(appwrite, Server.databaseID);
+    const database = new Databases(appwrite);
 
     api.sdk = { database, account };
     return appwrite;
@@ -33,24 +33,24 @@ let api = {
     return api.provider().account.deleteSession('current');
   },
 
-  createDocument: (collectionId, data, read, write) => {
+  createDocument: (databaseId, collectionId, data, permissions) => {
     return api
       .provider()
-      .database.createDocument(collectionId, 'unique()', data, read, write);
+      .database.createDocument(databaseId, collectionId, 'unique()', data, permissions);
   },
 
-  listDocuments: (collectionId) => {
-    return api.provider().database.listDocuments(collectionId);
+  listDocuments: (databaseId, collectionId) => {
+    return api.provider().database.listDocuments(databaseId, collectionId);
   },
 
-  updateDocument: (collectionId, documentId, data, read, write) => {
+  updateDocument: (databaseId, collectionId, documentId, data) => {
     return api
       .provider()
-      .database.updateDocument(collectionId, documentId, data, read, write);
+      .database.updateDocument(databaseId, collectionId, documentId, data);
   },
 
-  deleteDocument: (collectionId, documentId) => {
-    return api.provider().database.deleteDocument(collectionId, documentId);
+  deleteDocument: (databaseId, collectionId, documentId) => {
+    return api.provider().database.deleteDocument(databaseId, collectionId, documentId);
   },
 };
 

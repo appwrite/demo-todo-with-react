@@ -1,37 +1,35 @@
-import { useState } from "react";
-import api from "../../api/api";
-import { FetchState, useGetTodos } from "../../hooks";
-import { Server } from "../../utils/config";
-import Alert from "../Alert/Alert";
-import TodoItem from "./TodoItem";
+import { useState } from 'react';
+import api from '../../api/api';
+import { FetchState, useGetTodos } from '../../hooks';
+import { Server } from '../../utils/config';
+import Alert from '../Alert/Alert';
+import TodoItem from './TodoItem';
+import { Permission, Role } from 'appwrite';
 
 const Todo = ({ user, dispatch }) => {
   const [stale, setStale] = useState({ stale: false });
   const [{ todos, isLoading, isError }] = useGetTodos(stale);
-  const [currentTodo, setCurrentTodo] = useState("");
+  const [currentTodo, setCurrentTodo] = useState('');
 
   const handleAddTodo = async (e) => {
     e.preventDefault();
-    console.log("Adding Todo");
+    // console.log('Adding Todo');
     const data = {
       content: currentTodo,
       isComplete: false,
     };
-    console.log(data, user);
+    // console.log(data, user);
     try {
-      await api.createDocument(
-        Server.collectionID,
-        data,
-        [`user:${user["$id"]}`],
-        [`user:${user["$id"]}`]
-      );
+      await api.createDocument(Server.databaseID, Server.collectionID, data, [
+        Permission.read(Role.user(user['$id'])),
+        Permission.write(Role.user(user['$id'])),
+      ]);
       setStale({ stale: true });
-      setCurrentTodo("");
+      setCurrentTodo('');
     } catch (e) {
-      console.log("Error in adding todo");
+      console.error('Error in adding todo');
     }
   };
-
 
   const handleLogout = async (e) => {
     dispatch({ type: FetchState.FETCH_INIT });
@@ -41,7 +39,7 @@ const Todo = ({ user, dispatch }) => {
     } catch (e) {
       dispatch({ type: FetchState.FETCH_FAILURE });
     }
-  }
+  };
 
   return (
     <>
@@ -66,14 +64,17 @@ const Todo = ({ user, dispatch }) => {
 
           <ul>
             {todos.map((item) => (
-              <TodoItem key={item["$id"]} item={item} setStale={setStale} />
+              <TodoItem key={item['$id']} item={item} setStale={setStale} />
             ))}
           </ul>
         </div>
       </section>
 
       <section className="absolute bottom-0 right-0 py-3 px-6 mr-8 mb-8">
-        <button onClick={handleLogout} className="mx-auto mt-4 py-3 px-12 font-semibold text-md rounded-lg shadow-md bg-white text-gray-900 border border-gray-900 hover:border-transparent hover:text-white hover:bg-gray-900 focus:outline-none">
+        <button
+          onClick={handleLogout}
+          className="mx-auto mt-4 py-3 px-12 font-semibold text-md rounded-lg shadow-md bg-white text-gray-900 border border-gray-900 hover:border-transparent hover:text-white hover:bg-gray-900 focus:outline-none"
+        >
           Logout 👋
         </button>
       </section>
