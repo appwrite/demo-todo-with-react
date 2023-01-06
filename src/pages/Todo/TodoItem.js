@@ -14,8 +14,7 @@ const TodoItem = ({ item, setStale }) => {
         Server.collectionID,
         item["$id"],
         data,
-        item["$read"],
-        item["$write"]
+        item["$permissions"]
       );
       setStale({ stale: true });
     } catch (e) {

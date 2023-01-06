@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Permission, Role } from 'appwrite';
 import api from "../../api/api";
 import { FetchState, useGetTodos } from "../../hooks";
 import { Server } from "../../utils/config";
@@ -22,8 +23,7 @@ const Todo = ({ user, dispatch }) => {
       await api.createDocument(
         Server.collectionID,
         data,
-        [`user:${user["$id"]}`],
-        [`user:${user["$id"]}`]
+        [Permission.read(Role.user(user["$id"])), Permission.write(Role.user(user["$id"]))],
       );
       setStale({ stale: true });
       setCurrentTodo("");
