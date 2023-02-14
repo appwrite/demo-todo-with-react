@@ -1,35 +1,38 @@
-import api from "../../api/api";
-import { Server } from "../../utils/config";
-import { deleteButton } from "../icons";
+import api from '../../api/api';
+import { Server } from '../../utils/config';
+import { deleteButton } from '../icons';
 
 const TodoItem = ({ item, setStale }) => {
   const handleComplete = async (e, item) => {
-    console.log("Marking Todo as complete");
+    // console.log('Marking Todo as complete');
     let data = {
-      isComplete: !item["isComplete"],
+      isComplete: !item['isComplete'],
     };
     try {
-      console.log(item)
+      // console.log(item);
       await api.updateDocument(
+        Server.databaseID,
         Server.collectionID,
-        item["$id"],
-        data,
-        item["$read"],
-        item["$write"]
+        item['$id'],
+        data
       );
       setStale({ stale: true });
     } catch (e) {
-      console.log("Error in marking todo as complete");
+      console.error('Error in marking todo as complete');
     }
   };
 
   const handleDelete = async (e, item) => {
-    console.log("Deleting Todo");
+    // console.log('Deleting Todo');
     try {
-      await api.deleteDocument(Server.collectionID, item["$id"]);
+      await api.deleteDocument(
+        Server.databaseID,
+        Server.collectionID,
+        item['$id']
+      );
       setStale({ stale: true });
     } catch (e) {
-      console.log("Error in deleting todo");
+      console.error('Error in deleting todo');
     }
   };
 
@@ -39,15 +42,15 @@ const TodoItem = ({ item, setStale }) => {
         <input
           type="checkbox"
           className="h-6 w-6 text-green-500 rounded-md border-4 border-green-200 focus:ring-0 transition duration-75 ease-in-out transform hover:scale-125"
-          checked={item["isComplete"]}
+          checked={item['isComplete']}
           onChange={(e) => handleComplete(e, item)}
         />
         <div
           className={`capitalize ml-3 text-md font-medium ${
-            item["isComplete"] ? "line-through" : ""
+            item['isComplete'] ? 'line-through' : ''
           }`}
         >
-          {item["content"]}
+          {item['content']}
         </div>
       </div>
       <button

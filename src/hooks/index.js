@@ -38,7 +38,7 @@ export const useGetTodos = (stale) => {
     const getTodos = async () => {
       dispatch({ type: FetchState.FETCH_INIT });
       try {
-        const data = await api.listDocuments(Server.collectionID);
+        const data = await api.listDocuments(Server.databaseID, Server.collectionID);
         if (!didCancel) {
           dispatch({ type: FetchState.FETCH_SUCCESS, payload: data.documents });
         }
