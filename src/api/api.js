@@ -1,5 +1,5 @@
-import { Client as Appwrite, Databases, Account } from 'appwrite';
-import { Server } from '../utils/config';
+import { Client as Appwrite, Databases, Account } from "appwrite";
+import { Server } from "../utils/config";
 
 let api = {
   sdk: null,
@@ -14,15 +14,16 @@ let api = {
     const database = new Databases(appwrite);
 
     api.sdk = { database, account };
-    return appwrite;
+    return api.sdk;
   },
 
   createAccount: (email, password, name) => {
-    return api.provider().account.create('unique()', email, password, name);
+    return api.provider().account.create("unique()", email, password, name);
   },
 
   getAccount: () => {
-    return api.provider().account.get();
+    let account = api.provider().account;
+    return account.get();
   },
 
   createSession: (email, password) => {
@@ -30,7 +31,7 @@ let api = {
   },
 
   deleteCurrentSession: () => {
-    return api.provider().account.deleteSession('current');
+    return api.provider().account.deleteSession("current");
   },
 
   createDocument: (databaseId, collectionId, data, permissions) => {
