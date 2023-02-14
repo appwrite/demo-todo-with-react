@@ -11,10 +11,9 @@ const TodoItem = ({ item, setStale }) => {
     try {
       // console.log(item);
       await api.updateDocument(
-        Server.databaseID,
-        Server.collectionID,
-        item['$id'],
-        data
+        item["$id"],
+        data,
+        item["$permissions"]
       );
       setStale({ stale: true });
     } catch (e) {
@@ -26,8 +25,6 @@ const TodoItem = ({ item, setStale }) => {
     // console.log('Deleting Todo');
     try {
       await api.deleteDocument(
-        Server.databaseID,
-        Server.collectionID,
         item['$id']
       );
       setStale({ stale: true });
@@ -37,11 +34,11 @@ const TodoItem = ({ item, setStale }) => {
   };
 
   return (
-    <li className="flex justify-between items-center mt-4 px-4">
+    <li className="flex items-center justify-between px-4 mt-4">
       <div className="flex">
         <input
           type="checkbox"
-          className="h-6 w-6 text-green-500 rounded-md border-4 border-green-200 focus:ring-0 transition duration-75 ease-in-out transform hover:scale-125"
+          className="w-6 h-6 text-green-500 transition duration-75 ease-in-out transform border-4 border-green-200 rounded-md focus:ring-0 hover:scale-125"
           checked={item['isComplete']}
           onChange={(e) => handleComplete(e, item)}
         />
@@ -55,7 +52,7 @@ const TodoItem = ({ item, setStale }) => {
       </div>
       <button
         onClick={(e) => handleDelete(e, item)}
-        className="focus:outline-none transition duration-75 ease-in-out transform hover:scale-125"
+        className="transition duration-75 ease-in-out transform focus:outline-none hover:scale-125"
       >
         {deleteButton}
       </button>

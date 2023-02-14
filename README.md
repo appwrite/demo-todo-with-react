@@ -81,8 +81,8 @@ Now fill in the envrionment variables we discussed above in your `.env`
 Now run the following commands and you should be good to go 💪🏼
 
 ```
-$ npm install
-$ npm start
+npm install
+npm start
 ```
 
 ## 🤕 Support

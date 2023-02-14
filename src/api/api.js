@@ -1,5 +1,5 @@
-import { Client as Appwrite, Databases, Account } from "appwrite";
-import { Server } from "../utils/config";
+import { Client as Appwrite, Databases, Account, ID} from 'appwrite';
+import { Server } from '../utils/config';
 
 let api = {
   sdk: null,
@@ -18,7 +18,7 @@ let api = {
   },
 
   createAccount: (email, password, name) => {
-    return api.provider().account.create("unique()", email, password, name);
+    return api.provider().account.create(ID.unique(), email, password, name);
   },
 
   getAccount: () => {
@@ -34,24 +34,24 @@ let api = {
     return api.provider().account.deleteSession("current");
   },
 
-  createDocument: (databaseId, collectionId, data, permissions) => {
+  createDocument: (data, permissions) => {
     return api
       .provider()
-      .database.createDocument(databaseId, collectionId, 'unique()', data, permissions);
+      .database.createDocument(Server.databaseID, Server.collectionID, 'unique()', data, permissions);
   },
 
-  listDocuments: (databaseId, collectionId) => {
-    return api.provider().database.listDocuments(databaseId, collectionId);
+  listDocuments: () => {
+    return api.provider().database.listDocuments(Server.databaseID, Server.collectionID);
   },
 
-  updateDocument: (databaseId, collectionId, documentId, data) => {
+  updateDocument: (documentId, data) => {
     return api
       .provider()
-      .database.updateDocument(databaseId, collectionId, documentId, data);
+      .database.updateDocument(Server.databaseID, Server.collectionID, documentId, data);
   },
 
-  deleteDocument: (databaseId, collectionId, documentId) => {
-    return api.provider().database.deleteDocument(databaseId, collectionId, documentId);
+  deleteDocument: (documentId) => {
+    return api.provider().database.deleteDocument(Server.databaseID, Server.collectionID, documentId);
   },
 };
 
