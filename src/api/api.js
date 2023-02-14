@@ -14,7 +14,7 @@ let api = {
     const database = new Databases(appwrite);
 
     api.sdk = { database, account };
-    return appwrite;
+    return api.sdk;
   },
 
   createAccount: (email, password, name) => {
@@ -22,7 +22,8 @@ let api = {
   },
 
   getAccount: () => {
-    return api.provider().account.get();
+    let account = api.provider().account;
+    return account.get();
   },
 
   createSession: (email, password) => {
@@ -30,27 +31,27 @@ let api = {
   },
 
   deleteCurrentSession: () => {
-    return api.provider().account.deleteSession('current');
+    return api.provider().account.deleteSession("current");
   },
 
-  createDocument: (collectionId, data, permission) => {
+  createDocument: (data, permissions) => {
     return api
       .provider()
-      .database.createDocument(Server.databaseID, collectionId, ID.unique(), data, permission);
+      .database.createDocument(Server.databaseID, Server.collectionID, 'unique()', data, permissions);
   },
 
-  listDocuments: (collectionId) => {
-    return api.provider().database.listDocuments(Server.databaseID, collectionId);
+  listDocuments: () => {
+    return api.provider().database.listDocuments(Server.databaseID, Server.collectionID);
   },
 
-  updateDocument: (collectionId, documentId, data, permission) => {
+  updateDocument: (documentId, data) => {
     return api
       .provider()
-      .database.updateDocument(Server.databaseID, collectionId, documentId, data, permission);
+      .database.updateDocument(Server.databaseID, Server.collectionID, documentId, data);
   },
 
-  deleteDocument: (collectionId, documentId) => {
-    return api.provider().database.deleteDocument(Server.databaseID, collectionId, documentId);
+  deleteDocument: (documentId) => {
+    return api.provider().database.deleteDocument(Server.databaseID, Server.collectionID, documentId);
   },
 };
 

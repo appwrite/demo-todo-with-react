@@ -1,37 +1,34 @@
-import { useState } from "react";
+import { useState } from 'react';
+import api from '../../api/api';
+import { FetchState, useGetTodos } from '../../hooks';
+import Alert from '../Alert/Alert';
+import TodoItem from './TodoItem';
 import { Permission, Role } from 'appwrite';
-import api from "../../api/api";
-import { FetchState, useGetTodos } from "../../hooks";
-import { Server } from "../../utils/config";
-import Alert from "../Alert/Alert";
-import TodoItem from "./TodoItem";
 
 const Todo = ({ user, dispatch }) => {
   const [stale, setStale] = useState({ stale: false });
   const [{ todos, isLoading, isError }] = useGetTodos(stale);
-  const [currentTodo, setCurrentTodo] = useState("");
+  const [currentTodo, setCurrentTodo] = useState('');
 
   const handleAddTodo = async (e) => {
     e.preventDefault();
-    console.log("Adding Todo");
+    // console.log('Adding Todo');
     const data = {
       content: currentTodo,
       isComplete: false,
     };
-    console.log(data, user);
+    // console.log(data, user);
     try {
-      await api.createDocument(
-        Server.collectionID,
-        data,
-        [Permission.read(Role.user(user["$id"])), Permission.write(Role.user(user["$id"]))],
-      );
+      await api.createDocument(data, [
+        Permission.read(Role.user(user['$id'])),
+        Permission.write(Role.user(user['$id'])),
+      ]);
       setStale({ stale: true });
-      setCurrentTodo("");
+      setCurrentTodo('');
     } catch (e) {
-      console.log("Error in adding todo");
+      console.error('Error in adding todo');
     }
   };
-
 
   const handleLogout = async (e) => {
     dispatch({ type: FetchState.FETCH_INIT });
@@ -41,21 +38,21 @@ const Todo = ({ user, dispatch }) => {
     } catch (e) {
       dispatch({ type: FetchState.FETCH_FAILURE });
     }
-  }
+  };
 
   return (
     <>
-      <section className="container h-screen max-h-screen px-3 max-w-xl mx-auto flex flex-col">
+      <section className="container flex flex-col h-screen max-w-xl max-h-screen px-3 mx-auto">
         {isError && <Alert color="red" message="Something went wrong..." />}
-        <div className="my-auto p-16 rounded-lg text-center">
-          <div className="font-bold text-3xl md:text-5xl lg:text-6xl">
+        <div className="p-16 my-auto text-center rounded-lg">
+          <div className="text-3xl font-bold md:text-5xl lg:text-6xl">
             📝 <br /> &nbsp; toTooooDoooos
           </div>
 
           <form onSubmit={handleAddTodo}>
             <input
               type="text"
-              className="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
+              className="w-full px-6 py-4 my-8 text-xl transition duration-200 ease-in-out transform border-0 rounded-lg shadow-md focus:ring-2 focus:ring-gray-800 hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
               placeholder="🤔   What to do today?"
               value={currentTodo}
               onChange={(e) => setCurrentTodo(e.target.value)}
@@ -66,14 +63,17 @@ const Todo = ({ user, dispatch }) => {
 
           <ul>
             {todos.map((item) => (
-              <TodoItem key={item["$id"]} item={item} setStale={setStale} />
+              <TodoItem key={item['$id']} item={item} setStale={setStale} />
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="absolute bottom-0 right-0 py-3 px-6 mr-8 mb-8">
-        <button onClick={handleLogout} className="mx-auto mt-4 py-3 px-12 font-semibold text-md rounded-lg shadow-md bg-white text-gray-900 border border-gray-900 hover:border-transparent hover:text-white hover:bg-gray-900 focus:outline-none">
+      <section className="absolute bottom-0 right-0 px-6 py-3 mb-8 mr-8">
+        <button
+          onClick={handleLogout}
+          className="px-12 py-3 mx-auto mt-4 font-semibold text-gray-900 bg-white border border-gray-900 rounded-lg shadow-md text-md hover:border-transparent hover:text-white hover:bg-gray-900 focus:outline-none"
+        >
           Logout 👋
         </button>
       </section>
