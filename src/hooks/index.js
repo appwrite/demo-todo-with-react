@@ -68,7 +68,12 @@ export const useGetUser = () => {
           user: action.payload,
         };
       case FetchState.FETCH_FAILURE:
-        return { ...state, isLoading: false, isError: true };
+        return {
+          ...state,
+          isLoading: false,
+          isError: true,
+          errorMessage: action.payload?.message,
+        };
       default:
         throw new Error();
     }
@@ -77,6 +82,7 @@ export const useGetUser = () => {
   const [state, dispatch] = useReducer(reducer, {
     isLoading: false,
     isError: true,
+    errorMessage: null,
     data: [],
   });
 
