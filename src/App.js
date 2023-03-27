@@ -1,4 +1,4 @@
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Routes } from "react-router-dom";
 import Todo from "./pages/Todo/Todo";
 import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
@@ -10,18 +10,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Switch>
+      <Routes>
         <Route path="/todos">
           {user ? <Todo user={user} dispatch={dispatch} /> : <Redirect to="/login" />}
         </Route>
         <Route path="/login">
           {user ? <Redirect to="/todos" /> : <Login dispatch={dispatch}/>}
         </Route>
-        <Route exact path="/">
+        <Route  path="/">
           <Landing />
         </Route>
         <Redirect to="/" />
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }
