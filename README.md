@@ -21,7 +21,7 @@ We need to make a few configuration changes to your Appwrite server.
 
 2. Create a new collection with the following properties
 * **Attributes**
-* 
+
 Add the following attributes to the collection. 
 > Make sure that your Attribute ID exactly matches the key in the images
 
