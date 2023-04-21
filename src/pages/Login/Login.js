@@ -1,7 +1,7 @@
-import { useState } from "react";
-import api from "../../api/api";
-import SignUp from "./SignUp";
-import { FetchState } from "../../hooks";
+import { useState } from 'react';
+import api from '../../api/api';
+import SignUp from './SignUp';
+import { FetchState } from '../../hooks';
 
 const Login = ({ dispatch }) => {
   const [email, setEmail] = useState();
@@ -20,6 +20,10 @@ const Login = ({ dispatch }) => {
     }
   };
 
+  const handleDiscordLogin = () => {
+    api.createOAuth2Session('discord');
+  };
+
   return register ? (
     <SignUp setRegister={setRegister} dispatch={dispatch} />
   ) : (
@@ -27,14 +31,11 @@ const Login = ({ dispatch }) => {
       <div className="flex-grow flex flex-col max-w-xl justify-center p-6">
         <h1 className="text-6xl font-bold">Login</h1>
         <p className="mt-6">
-          {" "}
-          Don't have an account ?{" "}
-          <span
-            className="cursor-pointer underline"
-            onClick={() => setRegister(true)}
-          >
+          {' '}
+          Don't have an account ?{' '}
+          <span className="cursor-pointer underline" onClick={() => setRegister(true)}>
             Sign Up
-          </span>{" "}
+          </span>{' '}
         </p>
         <form onSubmit={handleLogin}>
           <label className="block mt-6"> Email</label>
@@ -58,12 +59,19 @@ const Login = ({ dispatch }) => {
             <button
               type="submit"
               disabled={!email || !password}
-              className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-            >
+              className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed">
               Login
             </button>
           </div>
         </form>
+        <div className="mt-6">
+          <button
+            type="button"
+            onClick={handleGitHubLogin}
+            className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none">
+            Login with GitHub
+          </button>
+        </div>
       </div>
     </section>
   );
