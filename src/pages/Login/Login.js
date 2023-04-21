@@ -20,8 +20,16 @@ const Login = ({ dispatch }) => {
     }
   };
 
-  const handleDiscordLogin = () => {
-    api.createOAuth2Session('discord');
+  const handleDiscordLogin = async (e) => {
+    e.preventDefault();
+    dispatch({ type: FetchState.FETCH_INIT });
+    try {
+      await api.createOAuth2Session('discord');
+      const data = await api.getAccount();
+      dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
+    } catch (e) {
+      dispatch({ type: FetchState.FETCH_FAILURE });
+    }
   };
 
   return register ? (
@@ -68,7 +76,7 @@ const Login = ({ dispatch }) => {
               type="button"
               onClick={handleDiscordLogin}
               className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none">
-              Login with GitHub
+              Login with Discord
             </button>
           </div>
         </form>
