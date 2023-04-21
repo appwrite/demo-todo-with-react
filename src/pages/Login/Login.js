@@ -63,15 +63,15 @@ const Login = ({ dispatch }) => {
               Login
             </button>
           </div>
+          <div className="mt-6">
+            <button
+              type="button"
+              onClick={handleGitHubLogin}
+              className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none">
+              Login with GitHub
+            </button>
+          </div>
         </form>
-        <div className="mt-6">
-          <button
-            type="button"
-            onClick={handleGitHubLogin}
-            className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none">
-            Login with GitHub
-          </button>
-        </div>
       </div>
     </section>
   );
