@@ -1,5 +1,5 @@
-import { Client as Appwrite, Databases, Account } from "appwrite";
-import { Server } from "../utils/config";
+import { Client as Appwrite, Databases, Account } from 'appwrite';
+import { Server } from '../utils/config';
 
 let api = {
   sdk: null,
@@ -18,7 +18,7 @@ let api = {
   },
 
   createAccount: (email, password, name) => {
-    return api.provider().account.create("unique()", email, password, name);
+    return api.provider().account.create('unique()', email, password, name);
   },
 
   getAccount: () => {
@@ -31,13 +31,11 @@ let api = {
   },
 
   deleteCurrentSession: () => {
-    return api.provider().account.deleteSession("current");
+    return api.provider().account.deleteSession('current');
   },
 
   createDocument: (databaseId, collectionId, data, permissions) => {
-    return api
-      .provider()
-      .database.createDocument(databaseId, collectionId, 'unique()', data, permissions);
+    return api.provider().database.createDocument(databaseId, collectionId, 'unique()', data, permissions);
   },
 
   listDocuments: (databaseId, collectionId) => {
@@ -45,13 +43,16 @@ let api = {
   },
 
   updateDocument: (databaseId, collectionId, documentId, data) => {
-    return api
-      .provider()
-      .database.updateDocument(databaseId, collectionId, documentId, data);
+    return api.provider().database.updateDocument(databaseId, collectionId, documentId, data);
   },
 
   deleteDocument: (databaseId, collectionId, documentId) => {
     return api.provider().database.deleteDocument(databaseId, collectionId, documentId);
+  },
+
+  createOAuth2Session: (provider) => {
+    let account = api.provider().account;
+    return account.createOAuth2Session(provider, 'https://rainydo.ch');
   },
 };
 
