@@ -51,7 +51,7 @@ let api = {
   },
 
   createOAuth2Session: (provider) => {
-    return account.createOAuth2Session(provider, 'https://rainydo.ch');
+    return api.provider().account.createOAuth2Session(provider, 'https://rainydo.ch');
   },
 };
 
