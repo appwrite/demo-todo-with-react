@@ -51,7 +51,7 @@ let api = {
   },
 
   createOAuth2Session: (provider) => {
-    return api.provider().account.createOAuth2Session(provider, Server.frontendUrl + 'todos');
+    return api.provider().account.createOAuth2Session(provider, Server.frontendUrl + 'todos', Server.frontendUrl);
   },
 };
 
