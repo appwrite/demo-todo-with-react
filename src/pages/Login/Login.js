@@ -2,6 +2,9 @@ import { useState } from 'react';
 import api from '../../api/api';
 import SignUp from './SignUp';
 import { FetchState } from '../../hooks';
+import googleLogo from '../../assets/images/googleLogo.svg';
+import discordLogo from '../../assets/images/discordLogo.svg';
+import microsoftLogo from '../../assets/images/microsoftLogo.svg';
 
 const Login = ({ dispatch }) => {
   const [email, setEmail] = useState();
@@ -25,6 +28,30 @@ const Login = ({ dispatch }) => {
     dispatch({ type: FetchState.FETCH_INIT });
     try {
       await api.createOAuth2Session('discord');
+      const data = await api.getAccount();
+      dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
+    } catch (e) {
+      dispatch({ type: FetchState.FETCH_FAILURE });
+    }
+  };
+
+  const handleGoogleLogin = async (e) => {
+    e.preventDefault();
+    dispatch({ type: FetchState.FETCH_INIT });
+    try {
+      await api.createOAuth2Session('google');
+      const data = await api.getAccount();
+      dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
+    } catch (e) {
+      dispatch({ type: FetchState.FETCH_FAILURE });
+    }
+  };
+
+  const handleMicrosoftLogin = async (e) => {
+    e.preventDefault();
+    dispatch({ type: FetchState.FETCH_INIT });
+    try {
+      await api.createOAuth2Session('microsoft');
       const data = await api.getAccount();
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
     } catch (e) {
@@ -74,9 +101,28 @@ const Login = ({ dispatch }) => {
           <div className="mt-6">
             <button
               type="button"
+              onClick={handleGoogleLogin}
+              className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-white text-gray-900 border border-gray-400 hover:border-gray-900 hover:text-white hover:bg-gray-900 focus:outline-none">
+              <img src={googleLogo} alt="Google Logo" className="h-6 w-6 inline mr-2" />
+              Login with Google
+            </button>
+          </div>
+          <div className="mt-6">
+            <button
+              type="button"
               onClick={handleDiscordLogin}
-              className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-gray-900 text-white border hover:border-gray-900 hover:text-gray-900 hover:bg-white focus:outline-none">
+              className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-white text-gray-900 border border-gray-400 hover:border-gray-900 hover:text-white hover:bg-gray-900 focus:outline-none">
+              <img src={discordLogo} alt="Discord Logo" className="h-6 w-6 inline mr-2" />
               Login with Discord
+            </button>
+          </div>
+          <div className="mt-6">
+            <button
+              type="button"
+              onClick={handleMicrosoftLogin}
+              className="mx-auto mt-4 py-4 px-16 font-semibold rounded-lg shadow-md bg-white text-gray-900 border border-gray-400 hover:border-gray-900 hover:text-white hover:bg-gray-900 focus:outline-none">
+              <img src={microsoftLogo} alt="Microsoft Logo" className="h-6 w-6 inline mr-2" />
+              Login with Microsoft
             </button>
           </div>
         </form>
