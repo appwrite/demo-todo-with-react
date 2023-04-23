@@ -5,6 +5,7 @@ import { FetchState } from '../../hooks';
 import googleLogo from '../../assets/images/googleLogo.svg';
 import discordLogo from '../../assets/images/discordLogo.svg';
 import microsoftLogo from '../../assets/images/microsoftLogo.svg';
+import appleLogo from '../../assets/images/appleLogo.png';
 import styles from './Login.module.css';
 
 const Login = ({ dispatch }) => {
@@ -53,6 +54,18 @@ const Login = ({ dispatch }) => {
     dispatch({ type: FetchState.FETCH_INIT });
     try {
       await api.createOAuth2Session('microsoft');
+      const data = await api.getAccount();
+      dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
+    } catch (e) {
+      dispatch({ type: FetchState.FETCH_FAILURE });
+    }
+  };
+
+  const handleAppleLogin = async (e) => {
+    e.preventDefault();
+    dispatch({ type: FetchState.FETCH_INIT });
+    try {
+      await api.createOAuth2Session('apple');
       const data = await api.getAccount();
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: data });
     } catch (e) {
@@ -113,6 +126,13 @@ const Login = ({ dispatch }) => {
               className="py-4 font-semibold rounded-lg shadow-md bg-white text-gray-900 border border-gray-400 hover:border-gray-900 hover:text-white hover:bg-gray-900 focus:outline-none">
               <img src={discordLogo} alt="Discord Logo" className="h-6 w-6 inline mr-2" />
               Login with Discord
+            </button>
+            <button
+              type="button"
+              onClick={handleAppleLogin}
+              className="py-4 font-semibold rounded-lg shadow-md bg-white text-gray-900 border border-gray-400 hover:border-gray-900 hover:text-white hover:bg-gray-900 focus:outline-none">
+              <img src={appleLogo} alt="Discord Logo" className="h-6 w-6 inline mr-2" />
+              Login with Apple
             </button>
           </div>
         </form>
