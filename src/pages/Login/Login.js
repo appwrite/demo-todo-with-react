@@ -99,7 +99,7 @@ const Login = ({ dispatch }) => {
               Login
             </button>
           </div>
-          <div className={`mt-6 ${styles.social - login}`}>
+          <div className={`mt-6 ${styles.socialLogin}`}>
             <button
               type="button"
               onClick={handleGoogleLogin}

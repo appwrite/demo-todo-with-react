@@ -1,11 +1,11 @@
-.social-login {
+.socialLogin {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.social-login > button {
+.socialLogin > button {
   flex: 1;
   min-width: calc(33% - 1rem);
 }
