@@ -114,13 +114,6 @@ const Login = ({ dispatch }) => {
               <img src={discordLogo} alt="Discord Logo" className="h-6 w-6 inline mr-2" />
               Login with Discord
             </button>
-            <button
-              type="button"
-              onClick={handleMicrosoftLogin}
-              className="py-4 font-semibold rounded-lg shadow-md bg-white text-gray-900 border border-gray-400 hover:border-gray-900 hover:text-white hover:bg-gray-900 focus:outline-none">
-              <img src={microsoftLogo} alt="Microsoft Logo" className="h-6 w-6 inline mr-2" />
-              Login with Microsoft
-            </button>
           </div>
         </form>
       </div>
@@ -128,4 +121,13 @@ const Login = ({ dispatch }) => {
   );
 };
 
+/**
+ * <button
+              type="button"
+              onClick={handleMicrosoftLogin}
+              className="py-4 font-semibold rounded-lg shadow-md bg-white text-gray-900 border border-gray-400 hover:border-gray-900 hover:text-white hover:bg-gray-900 focus:outline-none">
+              <img src={microsoftLogo} alt="Microsoft Logo" className="h-6 w-6 inline mr-2" />
+              Login with Microsoft
+            </button>
+ */
 export default Login;
