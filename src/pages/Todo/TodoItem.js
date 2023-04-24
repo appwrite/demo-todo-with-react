@@ -10,12 +10,7 @@ const TodoItem = ({ item, setStale }) => {
     };
     try {
       // console.log(item);
-      await api.updateDocument(
-        Server.databaseID,
-        Server.collectionID,
-        item['$id'],
-        data
-      );
+      await api.updateDocument(Server.databaseID, Server.collectionID, item['$id'], data);
       setStale({ stale: true });
     } catch (e) {
       console.error('Error in marking todo as complete');
@@ -25,11 +20,7 @@ const TodoItem = ({ item, setStale }) => {
   const handleDelete = async (e, item) => {
     // console.log('Deleting Todo');
     try {
-      await api.deleteDocument(
-        Server.databaseID,
-        Server.collectionID,
-        item['$id']
-      );
+      await api.deleteDocument(Server.databaseID, Server.collectionID, item['$id']);
       setStale({ stale: true });
     } catch (e) {
       console.error('Error in deleting todo');
@@ -45,18 +36,16 @@ const TodoItem = ({ item, setStale }) => {
           checked={item['isComplete']}
           onChange={(e) => handleComplete(e, item)}
         />
-        <div
-          className={`capitalize ml-3 text-md font-medium ${
-            item['isComplete'] ? 'line-through' : ''
-          }`}
-        >
+        <div className={`capitalize ml-3 text-md font-medium ${item['isComplete'] ? 'line-through' : ''}`}>
           {item['content']}
+          <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-primary-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-primary-700">
+            {item('priority')}
+          </span>
         </div>
       </div>
       <button
         onClick={(e) => handleDelete(e, item)}
-        className="focus:outline-none transition duration-75 ease-in-out transform hover:scale-125"
-      >
+        className="focus:outline-none transition duration-75 ease-in-out transform hover:scale-125">
         {deleteButton}
       </button>
     </li>
