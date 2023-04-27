@@ -10,7 +10,7 @@ If you simply want to try out the App, go ahead and check out the demo at https:
 ## 🎬 Getting Started
 
 ### 🤘 Create Appwrite Project
-The easiest way to get started with Appwrite is by [signing up for Appwrite Cloud](https://cloud.appwrite.io/).
+The easiest way to get started with Appwrite is by [signing up for Appwrite Cloud](https://cloud.appwrite.io/) and creating a new project.
 
 > If you want to try self-hosting Appwrite, follow our simple [Self-Hosting Guide](https://appwrite.io/docs/self-hosting) to get Appwrite up and running in no time. You can either deploy Appwrite on your local machine or, on any cloud provider of your choice. 
   
