@@ -9,19 +9,18 @@ If you simply want to try out the App, go ahead and check out the demo at https:
 
 ## 🎬 Getting Started
 
-### 🤘 Install Appwrite 
-Follow our simple [Installation Guide](https://appwrite.io/docs/installation) to get Appwrite up and running in no time. You can either deploy Appwrite on your local machine or, on any cloud provider of your choice. 
+### 🤘 Create Appwrite Project
+The easiest way to get started with Appwrite is by [signing up for Appwrite Cloud](https://cloud.appwrite.io/) and creating a new project.
 
-> Note: If you setup Appwrite on your local machine, you will need to create a public IP so that your hosted frontend can access it.
+> If you want to try self-hosting Appwrite, follow our simple [Self-Hosting Guide](https://appwrite.io/docs/self-hosting) to get Appwrite up and running in no time. You can either deploy Appwrite on your local machine or, on any cloud provider of your choice. 
   
-We need to make a few configuration changes to your Appwrite server. 
+We need to make a few configuration changes to your Appwrite project. 
 
 1. Add a new Web App in Appwrite and enter the endpoint of your website (`localhost, <project-name>.vercel.app etc`)
 ![Create Web App](https://user-images.githubusercontent.com/20852629/113019434-3c27c900-919f-11eb-997c-1da5a8303ceb.png)
 
 2. Create a new collection with the following properties
 * **Attributes**
-* 
 Add the following attributes to the collection. 
 > Make sure that your Attribute ID exactly matches the key in the images
 
@@ -34,7 +33,6 @@ Add the following attributes to the collection.
 </p>
 
 * **Permissions**
-
 Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
 
 <p align="center">
