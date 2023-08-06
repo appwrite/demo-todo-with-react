@@ -10,15 +10,24 @@ const Todo = ({ user, dispatch }) => {
   const [stale, setStale] = useState({ stale: false });
   const [{ todos, isLoading, isError }] = useGetTodos(stale);
   const [currentTodo, setCurrentTodo] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleAddTodo = async (e) => {
     e.preventDefault();
-    // console.log('Adding Todo');
+
+    // Trim the input to remove leading and trailing spaces
+    const trimmedTodo = currentTodo.trim();
+
+    if (trimmedTodo === '') {
+      setErrorMessage('Todo must be added');
+      return;
+    }
+
     const data = {
-      content: currentTodo,
+      content: trimmedTodo,
       isComplete: false,
     };
-    // console.log(data, user);
+
     try {
       await api.createDocument(Server.databaseID, Server.collectionID, data, [
         Permission.read(Role.user(user['$id'])),
@@ -26,6 +35,7 @@ const Todo = ({ user, dispatch }) => {
       ]);
       setStale({ stale: true });
       setCurrentTodo('');
+      setErrorMessage(''); // Reset the error message on successful addition
     } catch (e) {
       console.error('Error in adding todo');
     }
@@ -56,10 +66,14 @@ const Todo = ({ user, dispatch }) => {
               className="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
               placeholder="🤔   What to do today?"
               value={currentTodo}
-              onChange={(e) => setCurrentTodo(e.target.value)}
+              onChange={(e) => {
+                setCurrentTodo(e.target.value);
+                setErrorMessage(''); // Reset the error message on input change
+              }}
             ></input>
           </form>
 
+          {errorMessage && <div className="text-red-500 mt-2">{errorMessage}</div>}
           {isLoading && <h1> Loading .... </h1>}
 
           <ul>
