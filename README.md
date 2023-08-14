@@ -21,7 +21,7 @@ We need to make a few configuration changes to your Appwrite server.
 
 2. Create a new collection with the following properties
 * **Attributes**
-* 
+
 Add the following attributes to the collection. 
 > Make sure that your Attribute ID exactly matches the key in the images
 
@@ -38,8 +38,13 @@ Add the following attributes to the collection.
 Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/20852629/113019801-99bc1580-919f-11eb-9a94-13b1529cb925.png" alt="Collection Permissions" width="400"/>
+<img src="https://user-images.githubusercontent.com/20852629/113019801-99bc1580-919f-11eb-9a94-13b1529cb925.png" alt="Collection Permissions" width="744"/>
 </p>
+
+Ensure that you also enable **Document Level Security** in the settings.
+
+![Document Level Security](https://github.com/appwrite/demo-todo-with-react/assets/31401437/671479c5-9f43-45b8-949e-f5d7374be3d4)
+
 
 ### 🚀 Deploy the Front End
 You have two options to deploy the front-end and we will cover both of them here. In either case, you will need to fill in these environment variables that help your frontend connect to Appwrite.
@@ -76,7 +81,7 @@ Run the following command to generate your `.env` vars
 $ cp .env.example .env
 ```
 
-Now fill in the envrionment variables we discussed above in your `.env`
+Now fill in the environment variables we discussed above in your `.env`
 
 Now run the following commands and you should be good to go 💪🏼
 
