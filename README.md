@@ -17,34 +17,29 @@ Follow our simple [Installation Guide](https://appwrite.io/docs/installation) to
 We need to make a few configuration changes to your Appwrite server. 
 
 1. Add a new Web App in Appwrite and enter the endpoint of your website (`localhost, <project-name>.vercel.app etc`)
-![Create Web App](https://user-images.githubusercontent.com/20852629/113019434-3c27c900-919f-11eb-997c-1da5a8303ceb.png)
+![Create Web App](https://github.com/appwrite/demo-todo-with-react/assets/31401437/13362aa5-7a15-444c-96a7-48ac60647e16)
 
-2. Create a new collection with the following properties
+2. Create a new database and collection with the following properties
 * **Attributes**
 
 Add the following attributes to the collection. 
 > Make sure that your Attribute ID exactly matches the key in the images
 
 <p align="center">
-  <img width="744" alt="Content Attribute" src="https://user-images.githubusercontent.com/29069505/155617343-6ff674b3-9809-42ac-8175-0f76271b1189.png">
+  <img width="744" alt="Content Attribute" src="https://github.com/appwrite/demo-todo-with-react/assets/31401437/b263fc46-a999-4703-842c-d7b3b02f31f6">
 </p>
 
 <p align="center">
-  <img width="744" alt="IsComplete Attribute" src="https://user-images.githubusercontent.com/29069505/155617393-f30270af-aa07-4392-a7b2-75b8ce9c60da.png">
+  <img width="744" alt="IsComplete Attribute" src="https://github.com/appwrite/demo-todo-with-react/assets/31401437/71f4cf6f-8529-4c8a-b86a-dfb2cfca444a">
 </p>
 
 * **Permissions**
 
 Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/20852629/113019801-99bc1580-919f-11eb-9a94-13b1529cb925.png" alt="Collection Permissions" width="744"/>
-</p>
-
 Ensure that you also enable **Document Level Security** in the settings.
 
-![Document Level Security](https://github.com/appwrite/demo-todo-with-react/assets/31401437/671479c5-9f43-45b8-949e-f5d7374be3d4)
-
+![Document Level Security](https://github.com/appwrite/demo-todo-with-react/assets/31401437/072b89cb-07de-42a4-ad12-17c348a786e4)
 
 ### 🚀 Deploy the Front End
 You have two options to deploy the front-end and we will cover both of them here. In either case, you will need to fill in these environment variables that help your frontend connect to Appwrite.
