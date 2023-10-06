@@ -23,7 +23,7 @@ const Login = ({ dispatch }) => {
   return register ? (
     <SignUp setRegister={setRegister} dispatch={dispatch} />
   ) : (
-    <section className="container h-screen mx-auto flex">
+    <section className="container h-screen mx-auto flex justify-center items-center">
       <div className="flex-grow flex flex-col max-w-xl justify-center p-6">
         <h1 className="text-6xl font-bold">Login</h1>
         <p className="mt-6">
