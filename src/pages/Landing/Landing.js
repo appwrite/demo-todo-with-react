@@ -14,7 +14,7 @@ const Landing = () => {
       icon: github(10),
     },
     {
-      href: "https://twitter.com/appwrite_io",
+      href: "https://twitter.com/appwrite",
       icon: twitter(10),
     },
     {
